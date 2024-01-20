@@ -22,4 +22,4 @@ xtabs(~CLE.diversity,data=bfly) # should be high, low, NA
 
 # data checked and clean
 # export as L1
-write.csv(bfly.w, "LTER-butterflies\\LTER_butterflies_2019-2023_L1.csv", row.names=FALSE)
+write.csv(bfly, "LTER-butterflies\\LTER_butterflies_2019-2023_L1.csv", row.names=FALSE)
