@@ -1,6 +1,5 @@
 # formatting L1 data for analysis
 # creating L2 richness data
-# creating L2 abundance data
 
 # set working directory
 setwd("~/Work/MSU Haddad R Directory/haddad-lab")
