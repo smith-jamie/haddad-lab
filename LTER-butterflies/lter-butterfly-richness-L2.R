@@ -33,7 +33,7 @@ bfly.w <- filter(bfly.w,Species.analysis != "Copper sp")
 bfly.w <- filter(bfly.w,Species.analysis != "Fritillary sp")
 bfly.w <- filter(bfly.w,Species.analysis != "Hairstreak sp")
 bfly.w <- filter(bfly.w,Species.analysis != "Lycaenidae sp")
-bfly.w <- filter(bfly.w,Species.analysis != "none sp")
+bfly.w <- filter(bfly.w,Species.analysis != "none")
 bfly.w <- filter(bfly.w,Species.analysis != "Swallowtail sp")
 
 # reshape dataframe so that species counts are additional columns
