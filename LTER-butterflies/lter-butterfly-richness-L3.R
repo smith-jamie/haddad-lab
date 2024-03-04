@@ -39,8 +39,10 @@ summary(glmm)
 # plot variables
 plot(allEffects(glmm))
 
+# ag treatment
 plot(effect("Treatment",glmm),xlab="Treatment",ylab="Butterfly species richness",
      main=NULL,colors="#000000",bar.colors="#666666",ci.style="bars",lty=0)
 
+# year
 plot(effect("Year",glmm),xlab="Year",ylab="Butterfly species richness",
      main=NULL,colors="#000000",bar.colors="#666666",ci.style="bars",lty=0)
