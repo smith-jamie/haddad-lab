@@ -38,7 +38,7 @@ bfly.w <- filter(bfly.w,Species.analysis != "Swallowtail sp")
 
 # reshape dataframe so that species counts are additional columns
 colnames(bfly.w)
-bfly.w <- dcast(bfly.w, Date+Treatment+Replicate ~ Species.analysis)
+bfly.w <- dcast(bfly.w, Date+Treatment+Treatment.name+Replicate ~ Species.analysis)
 
 # check format
 head(bfly.w)
@@ -47,13 +47,13 @@ head(bfly.w)
 # use brackets to exclude non-count columns
 # sapply will let us convert any number >0 to 1
 colnames(bfly.w)
-bfly.w[,4:33] <- sapply(bfly.w[,4:33], function(x) { as.numeric(x > 0) })
+bfly.w[,5:33] <- sapply(bfly.w[,5:33], function(x) { as.numeric(x > 0) })
 
 # check that counts have been changed to 1s
 View(bfly.w)
 
 # add richness column by summing no. species per row
-bfly.w$Richness <- rowSums(bfly.w[,4:33])
+bfly.w$Richness <- rowSums(bfly.w[,5:33])
 colnames(bfly.w) # check for new column "Richness"
 
 # species richness data ready for analysis
