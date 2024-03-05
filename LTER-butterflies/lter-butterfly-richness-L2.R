@@ -14,9 +14,8 @@ library(ggplot2)
 bfly <- read.csv(file.choose(),header=T)
 colnames(bfly)
 
-# > RICHNESS ----
-# walking transect
-# T7 included 
+# walking transects, 12 min surveys
+# exclude strip transects, 8 min surveys
 
 # filter out strip transects
 bfly.w <- filter(bfly,Transect=="walking")

@@ -1,5 +1,4 @@
-
-# analysis of LTER butterfly richness data
+# L3- analysis of LTER butterfly richness data
 
 # load packages
 library(lme4)
@@ -31,7 +30,7 @@ rich %>%
 # extract year from Date
 rich$Year <- format(as.Date(rich$Date, format="%m/%d/%Y"),"%Y")
 
-# generalized linear model with poisson distribution
+# generalized linear mixed model with poisson distribution
 glmm <- glmer(Richness ~ Treatment + Year + (1|Replicate), family = "poisson", data = rich)
 summary(glmm)
 
