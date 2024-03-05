@@ -9,7 +9,7 @@
 # set working directory
 setwd("~/Work/MSU Haddad R Directory/haddad-lab")
 
-# read in data
+# read in L0 LTER butterfly data
 bfly <- read.csv(file.choose(),header=T)
 
 # check column names
@@ -18,6 +18,7 @@ colnames(bfly)
 # check categories
 xtabs(~Transect,data=bfly) # should be strip, walking, NA
 xtabs(~Treatment,data=bfly) # should be CLE, T1-T4, T6, T7
+xtabs(~Treatment+Transect,data=bfly) # check for incorrect transects (ex. T1 strip)
 xtabs(~CLE.diversity,data=bfly) # should be high, low, NA
 
 # data checked and clean
