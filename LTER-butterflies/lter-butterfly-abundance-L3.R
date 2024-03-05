@@ -11,6 +11,7 @@ library(lme4)
 library(lmerTest)
 library(ggplot2)
 library(effects)
+library(scales)
 
 # load L2 butterfly abundance data
 
@@ -30,11 +31,11 @@ bfly$log <- log(bfly$bpm)
 qqnorm(bfly$log)
 qqline(bfly$log)
 hist(bfly$log)
-# better
+# bit better
 
 # quick glance at abundance across treatments
 bfly %>%
-  ggplot(aes(x = Treatment,y = log)) +
+  ggplot(aes(x = treat_trans,y = log)) +
   geom_boxplot() + labs(x="Treatment",y="log(abundance index)") +
   theme_classic(base_size = 20)
 
@@ -44,8 +45,24 @@ bfly %>%
   geom_boxplot() + labs(x="Year",y="log(abundance index)") +
   theme_classic(base_size = 20)
 
+# add column for descriptive treatment axis titles
+xtabs(~treat_trans,bfly)
+bfly <- bfly %>%
+  mutate(treat_title = case_when(treat_trans == "1_walking" ~ "Conventional",
+                                 treat_trans == "2_walking" ~ "No Till",
+                                 treat_trans == "3_walking" ~ "Reduced Input",
+                                 treat_trans == "4_walking" ~ "Organic",
+                                 treat_trans == "6_walking" ~ "Switchgrass",
+                                 treat_trans == "7_walking" ~ "Successional",
+                                 treat_trans == "3_strip" ~ "Prairie Strip (reduced input)",
+                                 treat_trans == "4_strip" ~ "Prairie Strip (organic)",
+                                 treat_trans == "CLE_strip" ~ "Restored Prairie"
+  ))
+xtabs(~treat_title,bfly)
+
+
 # linear mixed model
-lmm <- lmer(log~Treatment+Year+(1|Replicate),data=bfly)
+lmm <- lmer(log~treat_title+Year+(1|Replicate),data=bfly)
 summary(lmm)
 
 # plot variables
@@ -58,13 +75,18 @@ plot(effect("Treatment",lmm),xlab="Treatment",ylab="log(butterfly abundance inde
 
 # ggplot
 bfly %>% 
-  mutate(Treatment = factor(Treatment, levels=c("1","2","3","4","6","7","CLE"))) %>%
-  ggplot(aes(x=Treatment,y=log)) + 
+  mutate(treat_title = factor(treat_title, 
+                              levels=c("Conventional","No Till",
+                                       "Reduced Input","Organic","Switchgrass",
+                                       "Successional","Prairie Strip (reduced input)",
+                                       "Prairie Strip (organic)","Restored Prairie"))) %>%
+  ggplot(aes(x=treat_title,y=log)) + 
   labs(x="Agricultural Treatment",y="log(butterfly abundance index)") +
   geom_boxplot() +
   theme_classic() +
   theme(axis.text=element_text(size=16), 
-        axis.title=element_text(size=18))
+        axis.title=element_text(size=18)) +
+  scale_x_discrete(labels = label_wrap(width = 10))
 
 
 # year
