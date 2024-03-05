@@ -1,5 +1,10 @@
-# formatting L1 data for analysis
-# creating L2 richness data
+
+# AUTHORS:        Annabelle McCarthy, Sean Fitzgerald, Jamie Smith, Nick Haddad
+# COLLABORATORS:  
+# DATA INPUT:     Data imported as csv files
+# DATA OUTPUT:    Clean L2 butterfly richness data, ready for analysis
+# PROJECT:        LTER Butterflies
+# DATE:           March 2024
 
 # set working directory
 setwd("~/Work/MSU Haddad R Directory/haddad-lab")

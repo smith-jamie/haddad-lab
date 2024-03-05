@@ -1,4 +1,10 @@
-# L3- analysis of LTER butterfly richness data
+
+# AUTHORS:        Annabelle McCarthy, Sean Fitzgerald, Jamie Smith, Nick Haddad
+# COLLABORATORS:  
+# DATA INPUT:     Data imported as csv files
+# DATA OUTPUT:    Butterfly richness results and figures
+# PROJECT:        LTER Butterflies
+# DATE:           March 2024
 
 # load packages
 library(lme4)
