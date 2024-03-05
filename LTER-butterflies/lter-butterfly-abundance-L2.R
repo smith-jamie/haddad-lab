@@ -32,7 +32,7 @@ xtabs(~Transect,data=bfly.w)
 bfly.s <- filter(bfly,Transect=="strip")
 xtabs(~Transect,data=bfly.s)
 
-# create dataframes with just Year, Treatment+name, Rep, Transect, and species
+# create dataframes with just Year, Treatment, Rep, Transect, and species
 colnames(bfly.w)
 bfly.w <- bfly.w[,c(2:3,6,22,20)]
 bfly.s <- bfly.s[,c(2:3,6,22,20)]
@@ -68,6 +68,9 @@ head(bfly.s)
 
 # combine back into one dataframe
 bfly.ab <- rbind(bfly.w, bfly.s)
+
+# create "treat_trans" column that concatenates treatment with transect
+bfly.ab$treat_trans <- paste(bfly.ab$Treatment,bfly.ab$Transect,sep="_")
 View(bfly.ab)
 
 # abundance data ready for analysis
