@@ -12,10 +12,8 @@ setwd("~/Work/MSU Haddad R Directory/haddad-lab")
 # Load packages
 library(tidyverse)
 library(dplyr)
-library(lme4)
-library(lmerTest)
 
-# load L1 abundance data
+# load L1 butterfly data
 bfly <- read.csv(file.choose(),header=T)
 colnames(bfly)
 

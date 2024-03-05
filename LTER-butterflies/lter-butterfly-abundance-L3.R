@@ -12,7 +12,7 @@ library(lmerTest)
 library(ggplot2)
 library(effects)
 
-# load L2 abundance data
+# load L2 butterfly abundance data
 
 bfly <- read.csv(file.choose(),header=T)
 colnames(bfly)
@@ -24,7 +24,7 @@ hist(bfly$bpm)
 # pretty right-skewed
 
 # log transform
-bfly$log <- log10(bfly$bpm)
+bfly$log <- log(bfly$bpm)
 
 # check
 qqnorm(bfly$log)
