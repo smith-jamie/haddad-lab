@@ -12,7 +12,7 @@ library(lmerTest)
 library(ggplot2)
 library(effects)
 
-# load L2 data
+# load L2 butterfly richness data
 
 rich <- read.csv(file.choose(),header=T)
 colnames(rich)
@@ -21,7 +21,7 @@ colnames(rich)
 qqnorm(rich$Richness)
 qqline(rich$Richness)
 hist(rich$Richness) # heavily right-skewed, not surprising
-# should use Poisson?
+# should use Poisson distribution
 
 # make Treatment and Replicate factors
 rich$Treatment <- as.factor(rich$Treatment)

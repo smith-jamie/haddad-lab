@@ -2,7 +2,7 @@
 # AUTHORS:        Annabelle McCarthy, Sean Fitzgerald, Jamie Smith, Nick Haddad
 # COLLABORATORS:  
 # DATA INPUT:     Data imported as csv files
-# DATA OUTPUT:    Clean L2 butterfly richness data, ready for analysis
+# DATA OUTPUT:    L2 butterfly richness data, ready for analysis
 # PROJECT:        LTER Butterflies
 # DATE:           March 2024
 
